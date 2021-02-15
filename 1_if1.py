@@ -14,12 +14,32 @@
 
 """
 
-def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+def userPurpose(userAge):
+    if type(userAge) == str:
+        age = int(float(userAge))
+    elif type(userAge) == float:
+        age = int(userAge)
 
-if __name__ == "__main__":
+    if age < 0:
+        return f'Вы ввели ошибочный возраст: {age}. Возраст должен быть больше 0'
+    elif 0 <= age <= 2:
+        return f'Ваш возраст {age}. Вы в яслях.'
+    elif 3 <= age <= 6:
+        return f'Ваш возраст {age}. Вы обитатель детского сада.'
+    elif 7 <= age <= 17:
+        return f'Ваш возраст {age}. Вы учитесь в школе в {age - 6} классе.'
+    elif 18 <= age <= 23:
+        return f'Ваш возраст {age}. Вы учитесь в ВУЗе на {age - 17} курсе.'
+    elif 24 <= age <= 60:
+        return f'Ваш возраст {age}. Вы работаете.'
+    elif 61 <= age <= 89:
+        return f'Ваш возраст {age}. Вы должны быть на пенсии, но это не точно.'
+    elif age >= 90:
+        return f'Ваш возраст {age}. Вы хорошо сохранились.'
+
+def main():
+    age = input('Введите Ваш возраст: ')
+    print(userPurpose(age))
+
+if __name__ == '__main__':
     main()
