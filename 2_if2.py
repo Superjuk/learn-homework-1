@@ -15,12 +15,29 @@
 
 """
 
+def compare(str1 = '', str2 = ''):
+    if type(str1) != str or type(str2) != str:
+        return 0
+
+    if str1 == str2:
+        return 1
+    elif len(str1) > len(str2):
+        return 2
+    elif str2 == 'learn':
+        return 3
+    else:
+        return -1
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
-    
+    print(compare(1, 'test'))
+    print(compare('test1', 2.5))
+    print(compare('same', 'same'))
+    print(compare('longer', 'short'))
+    print(compare('pypy', 'learn'))
+    print(compare('learn', 'pypy'))
+    print(compare('cpython', 'python3'))
+    print(compare())
+
+
 if __name__ == "__main__":
     main()
