@@ -13,11 +13,34 @@
     
 """
 
-def discounted(price, discount, max_discount=20)
-    """
-    Замените pass на ваш код
-    """
-    pass
+def discounted(price, discount, max_discount=20):
+    try:
+        price = abs(float(price))
+    except ValueError:
+        return 'Введено неверное значение цены'
+    except TypeError:
+        return 'Тип цены неверен'
+
+    try:
+        discount = abs(float(discount))
+    except ValueError:
+        return 'Введено неверное значение скидки'
+    except TypeError:
+        return 'Тип скидки неверен'
+
+    try:
+        max_discount = abs(int(max_discount))
+    except ValueError:
+        return 'Введено неверное значение максимальной скидки'
+    except TypeError:
+        return 'Тип макисмальной скидки неверен'
+
+    if max_discount > 99:
+        raise ValueError('Слишком большая максимальная скидка')
+    if discount >= max_discount:
+        return price
+    else:
+        return price - (price * discount / 100)
     
 if __name__ == "__main__":
     print(discounted(100, 2))
